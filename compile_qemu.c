@@ -286,14 +286,13 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
             printf(" 0      Q Q    E           M     M     U      U    \n");
             printf("  QQQQQQQQQ    E           M     M     U      U    \n");
             printf("            Q  EEEEEEEE    M     M      UUUUUU     \n");
-            char comp_ver[]="5.1";
+            char comp_ver[]="5.2";
 	if(loc==0)
             {
             printf("qemu快捷编译程序 V%s-qemu%s\n",comp_ver,ver);
             printf("版权所有(c)xc1984759471 2021-2022\n");
             printf("\n本程序主要为用户提供编译qemu更为快捷的手段，方便小白上手。支持自动获取源代码，自动配置，自动编译，自动安装，提供多种源码获取方式，及自定义配置功能\n");
-            printf("更新内容：为确保正常使用，本程序将仅允许root权限下运行\n");
-		printf("\n作者注：为什么要用C语言写本程序呢？\n其实刚开始本人也打算用shell脚本来编写的，因为本程序绝大部分功能最终都是靠shell命令来实现的,但是后来发现用shell编程有些逻辑函数实现更为复杂，况且本人也很少对shell脚本进行过研究，后来本人发现用C语言编写逻辑关系更简单，于是本人就选择用C语言编写本程序。\n\n");
+            printf("更新内容：存储库已搬运到github,请通过新源获取\n");
             printf("\n本程序完全免费，严禁任何组织和个人倒卖本程序\n");
             printf("反馈建议与bug请前往本仓库地址https://gitee.com/xc1984759471/qemu-binary-demo\n");
             }
