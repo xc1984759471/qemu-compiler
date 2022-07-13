@@ -70,7 +70,7 @@ if(su==0)
     //定义命令
     char ver[50]="7.0.0"; //qemu版本号
 	char arr[100000]="/bin/bash -c 'cd qemu;./configure";
-    char arr3[300]=" && make -j5 && make install && mkdir qemu-binary-demo && git clone 'https://gitee.com/xc1984759471/qemu-binary-demo.git';cd qemu-binary-demo;rm -rf /usr/local/bin/uninstall_qemu;cat uninstall >> /usr/local/bin/uninstall_qemu ; chmod 777 /usr/local/bin/uninstall_qemu  ; cd ../..;rm -rf qemu'";
+    char arr3[300]=" && make -j5 && make install && mkdir qemu-binary-demo && git clone 'https://github.com/xc1984759471/qemu-compiler.git';cd qemu-compiler;rm -rf /usr/local/bin/uninstall_qemu;cat uninstall >> /usr/local/bin/uninstall_qemu ; chmod 777 /usr/local/bin/uninstall_qemu  ; cd ../..;rm -rf qemu'";
     char arr4[300]="wget --no-check-certificate -O qemu.tar.xz https://download.qemu.org/qemu-";
 	char arr41[100]=".tar.xz;tar --no-same-owner -xvJf qemu.tar.xz ; mv qemu-";
 char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
@@ -292,7 +292,7 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
             printf("qemu快捷编译程序 V%s-qemu%s\n",comp_ver,ver);
             printf("版权所有(c)xc1984759471 2021-2022\n");
             printf("\n本程序主要为用户提供编译qemu更为快捷的手段，方便小白上手。支持自动获取源代码，自动配置，自动编译，自动安装，提供多种源码获取方式，及自定义配置功能\n");
-            printf("更新内容：存储库已搬运到github,请通过新源获取\n");
+            printf("更新内容：存储库已搬运到github,请通过新存储库获取\n");
             printf("\n本程序完全免费，遵守GPLV2协议，严禁任何组织和个人倒卖本程序\n");
             printf("反馈建议与bug请前往本仓库地址https://github.com/xc1984759471/qemu-compiler\n");
 	    printf("\n版权声明:\n本程序是自由软件：你可以根据自由软件基金会发布的GNU通用公共许可证的条款，即许可证的第3版，或（你选择）任何更高的版本，重新发布和/或修改它。\n本程序的发布是希望它是有用的，但没有任何保证；甚至没有隐含的适销性或特定用途的保证。  更多细节请参见GNU通用公共许可证。\n你应该已经收到了与本程序一起的GNU通用公共许可证的副本。  如果没有，请参阅<http://www.gnu.org/licenses/>。\n");
@@ -302,9 +302,8 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
             printf("Qemu compiler V%s-qemu%s\n",comp_ver,ver);
             printf("Copyright(c)xc1984759471 2021-2022\n");
             printf("\nThis program mainly provides users with more fast means for compilation QEMU, which is convenient for small white hands. Support automatic acquisition source code, automatic configuration, automatic compilation, automatic installation, providing multiple source code acquisition methods, and custom configuration\n");
-            printf("Update: Add English language translation\n");
-		printf("\nAuthor Note: Why do you use C language to write this program?\nIn fact, I just plan to use the shell script, because most of this program is ultimately relying on shell commands, but later discovering some logic functions to achieve more complicated, and I am also very few The shell script has been studied. Later, I found that writing logical relationships with C language is simpler, so I choose to write this program with C language.\n");
-            printf("\nThis program is completely free, it is strictly forbidden to organize and personal reselling\n");
+            printf("Update: The repository was moved to Github,please get it through the new repository\n");
+            printf("\nThis program is completely free,Compliance with GPLV2 agreement,and it is strictly forbidden to organize and personal reselling\n");
             printf("Feedback Suggestions and Bug Please go to this GIT repository:https://gitee.com/xc1984759471/qemu-binary-demo\n");
 	    printf("\nLicense Agreement:\nThis program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by                                                          the Free Software Foundation, either version 3 of the License, or  (at your option) any later version.\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\nYou should have received a copy of the GNU General Public Licence along with this program.  If not, see <http://www.gnu.org/licenses/>.\n");
             }
