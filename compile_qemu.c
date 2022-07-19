@@ -89,7 +89,10 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
     {
         if(strcmp(argv[1],"auto")==0)//自动编译
         {
-	    printf("正在安装基础依赖，请稍后\n");
+	    if(loc==0)
+		printf("正在安装基础依赖，请稍后\n");
+	    else
+		printf("Installing the base dependencies,please wait\n");
             system(dep1);
             //判断文件是否存在
             if(file1==-1)
@@ -172,7 +175,10 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
            {
                if(argc==3)
                {
+		if(loc==0)
 		printf("正在安装基础依赖，请稍后\n");
+		else
+		printf("Installing the base dependencies,please wait\n");
                 system(dep1);
                if(strcmp(argv[2],"git-th")==0)//清华源
                {
