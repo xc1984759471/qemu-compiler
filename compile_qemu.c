@@ -492,6 +492,9 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
 }
 else
 {
+if(detectlocale("zh_CN")==0)
 printf("本程序需要root权限才能运行\n");
+else
+printf("This program requires root privileges to run.\n");
 }
 }
