@@ -1,13 +1,16 @@
-# qemu-binary-demo
-该库目前只存放install，uninstall等脚本以及qemu快捷编译程序源代码。
-为了方便大家更快获取最新版的qemu，本人利用c语言编写了qemu快捷编译程序，源代码位于本仓库根目录下compile_qemu.c
+# qemu-compiler
+本程序为qemu的快速编译程序，只需一条命令，就可以自动完成qemu虚拟机的本地构建，更方便小白上手。支持自动获取源代码，自动安装依赖，自动配置，自动编译，自动安装，提供多种源码获取方式，及自定义配置功能
+*自动安装依赖目前仅支持debian系发行版，后续会进一步适配其他发行版*
 # 使用方法
-1.如果是arm64/x64架构处理器的设备，可以前往releases下载（可能来不及更新），下载完成后通过终端运行（请先通过chmod +x命令给予可执行权限），普通用户请在命令前加sudo
-2.如果是其他架构的处理器的设备，也可以自行克隆源码，通过以下命令编译运行：
-gcc -o compiler compile_qemu.c ; sudo ./compiler
-3.如果你有极客精神，也可以自行修改其中源码的内容（不要直接更改本仓库中的文件！！！），实现功能的定制（如源码获取方式，编译方式等），请注意，只推荐修改带注释的内容，不要随意修改其他代码内容，否则造成的bug由用户自行承担。
+1.在releases中下载对应架构的版本（普通pc下载x64版本即可）;
+2.tar -xf qemu-compiler-(x64|arm64).tar.gz
+3.cd qemu-compiler-(x64|arm64)
+4. ./qemu-compiler help可查看命令帮助，进行常规编译安装可执行./qemu-compiler auto
+如果没有你使用的架构，也可以获取源代码自行编译，编译方法：
+gcc -o compiler compile_qemu.c;./compiler <参数>
 
 查看qemu帮助请前往https://www.qemu.org/docs/master/
 获取源码及反馈问题请前往qemu存储库https://github.com/qemu/qemu
-
+反馈意见/建议请直接提交issue
 因本人时间有限，可能来不及更新，欢迎各位共同维护
+
