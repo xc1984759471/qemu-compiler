@@ -299,9 +299,9 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
             char comp_ver[]="5.2";
 	if(loc==0)
             {
-            printf("qemu快捷编译程序 V%s-qemu%s\n",comp_ver,ver);
+            printf("qemu编译器 V%s-qemu%s\n",comp_ver,ver);
             printf("版权所有(c)xc1984759471 2021-2022\n");
-            printf("\n本程序主要为用户提供编译qemu更为快捷的手段，方便小白上手。支持自动获取源代码，自动配置，自动编译，自动安装，提供多种源码获取方式，及自定义配置功能\n");
+            printf("\n本程序主要为用户提供编译/安装qemu更为快捷的手段，方便小白上手。支持自动获取源代码，自动配置，自动编译，自动安装，提供多种源码获取方式，及自定义配置功能\n");
             printf("更新内容：\n1.增加基于GPL的版权声明;\n2.改变基础依赖的安装逻辑，先获取基础依赖再执行后续步骤\n");
             printf("\n本程序完全免费，遵守GPLV3协议，严禁任何组织和个人倒卖本程序\n");
             printf("反馈建议与bug请前往本仓库地址https://github.com/xc1984759471/qemu-compiler\n");
