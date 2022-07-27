@@ -1,27 +1,32 @@
-name: C/C++ CI
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Build
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  release:
+    types: [published]
 
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
 
     steps:
-    - uses: actions/checkout@v3
-    - name: compile
-      run: ./build_compiler.sh
-      
-    - name: create_release
-    - uses: "actions/upload-release-asset@v1"
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run:
+          apt install gcc
+    - name: automatic build
+      run: |
+        ./build_compiler.sh
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "${{ env.RELEASE_VERSION }}"
-        prerelease: false
-        title: "Release ${{ env.RELEASE_VERSION }}"
-        files: |
-            *.tar.gz
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./${{ env.BUILT_PATH }}
+        asset_name: ${{ env.BUILT_PATH }}
+        asset_content_type: application/gzip
