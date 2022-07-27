@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 #rm -rf qemu-compiler/compile_qemu.c ; cp compile_qemu.c qemu-compiler
 if [[ "$(arch)"="x86_64" ]];then
-sudo apt install gcc gcc-aarch64-linux-gnu
+sudo apt install gcc gcc-aarch64-linux-gnu -y
 elif [[ "$(arch)"="aarch64" ]];then
-sudo apt install gcc gcc-x86-64-linux-gnu
+sudo apt install gcc gcc-x86-64-linux-gnu -y
 fi
 mkdir qemu-compiler-arm64 qemu-compiler-x64
 time bash -c "aarch64-linux-gnu-gcc -O3 -o qemu-compiler-arm64/qemu-compiler compile_qemu.c -static ;x86_64-linux-gnu-gcc -O3 -o qemu-compiler-x64/qemu-compiler compile_qemu.c -static"
