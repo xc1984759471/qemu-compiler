@@ -1,0 +1,27 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: compile
+      run: ./build_compiler.sh
+      
+    - name: create_release
+    - uses: "actions/upload-release-asset@v1"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "${{ env.RELEASE_VERSION }}"
+        prerelease: false
+        title: "Release ${{ env.RELEASE_VERSION }}"
+        files: |
+            *.tar.gz
