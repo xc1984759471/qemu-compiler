@@ -70,7 +70,7 @@ if(su==0)
     //定义命令
     char ver[50]="7.0.0"; //qemu版本号
 	char arr[100000]="/bin/bash -c 'cd qemu;./configure";
-    char arr3[400]=" && make -j5 && make install && mkdir qemu-compiler && bash -c \"git clone https://github.com/xc1984759471/qemu-compiler.git || git clone https://gitclone.com/github.com/xc1984759471/qemu-compiler.git\";cd qemu-compiler;rm -rf /usr/local/bin/uninstall_qemu;cat uninstall >> /usr/local/bin/uninstall_qemu ; chmod 777 /usr/local/bin/uninstall_qemu  ; cd ../..;rm -rf qemu'";
+    char arr3[400]=" && make -j5 && make install && mkdir qemu-compiler && bash -c \"git clone https://gitee.com/xc1984759471/qemu-binary-demo.git\";cd qemu-binary-demo;rm -rf /usr/local/bin/uninstall_qemu;cat uninstall >> /usr/local/bin/uninstall_qemu ; chmod 777 /usr/local/bin/uninstall_qemu  ; cd ../..;rm -rf qemu'";
     char arr4[300]="wget --no-check-certificate -O qemu.tar.xz https://download.qemu.org/qemu-";
 	char arr41[100]=".tar.xz;tar --no-same-owner -xvJf qemu.tar.xz ; mv qemu-";
 char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
