@@ -371,7 +371,7 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
                 system("sed -i ':a;N;s/\\n/ /g;ta' /tmp/custom_command.txt");
                 FILE *fp = NULL;
                 fp = fopen("/tmp/custom_command.txt", "r");
-                fgets(arr21, 255, (FILE*)fp);
+                fgets(arr21, 2000, (FILE*)fp);
                 arr21[strlen(arr21)-1]=0;
                 if(loc==0)
                 {
