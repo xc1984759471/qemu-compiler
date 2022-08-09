@@ -362,8 +362,8 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
                     printf("Opening the text editor,please wait\n");
                     }
                     usleep(1500000);
-                char arr2[500]=" ";
-                char arr21[500];
+                char arr2[2000]=" ";
+                char arr21[2000];
                 //fgets(arr21,500,stdin);
 	            //arr21[strlen(arr21)-1]=0;
                 system("touch /tmp/custom_command.txt");
