@@ -68,7 +68,7 @@ if(su==0)
     int file=access("qemu.tar.xz",F_OK);
     int file1=access("qemu",F_OK);
     //定义命令
-    char ver[50]="7.1.0-rc2"; //qemu版本号
+    char ver[50]="7.1.0-rc3"; //qemu版本号
 	char arr[100000]="/bin/bash -c 'cd qemu;./configure";
     char arr3[400]=" && make -j5 && make install && mkdir qemu-compiler && bash -c \"git clone https://gitee.com/xc1984759471/qemu-binary-demo.git\";cd qemu-binary-demo;rm -rf /usr/local/bin/uninstall_qemu;cat uninstall >> /usr/local/bin/uninstall_qemu ; chmod 777 /usr/local/bin/uninstall_qemu  ; cd ../..;rm -rf qemu'";
     char arr4[300]="wget --no-check-certificate -O qemu.tar.xz https://download.qemu.org/qemu-";
@@ -143,7 +143,7 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
                 }
                 usleep(1000000);
             }
-            char arr2[400]=" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,ppc-softmmu,ppc64-softmmu,ppc-linux-user,ppc64-linux-user,mips64el-softmmu,mips64el-linux-user,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa ";
+            char arr2[400]=" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa ";
             strcat(arr,arr2);
             strcat(arr,arr3);
             system(arr);//执行编译命令
