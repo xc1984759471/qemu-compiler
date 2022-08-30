@@ -296,7 +296,7 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
             printf(" 0      Q Q    E           M     M     U      U    \n");
             printf("  QQQQQQQQQ    E           M     M     U      U    \n");
             printf("            Q  EEEEEEEE    M     M      UUUUUU     \n");
-            char comp_ver[]="5.2";
+            char comp_ver[]="5.3";
 	if(loc==0)
             {
             printf("qemu编译器 V%s-qemu%s\n",comp_ver,ver);
