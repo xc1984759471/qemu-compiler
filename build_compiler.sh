@@ -8,12 +8,13 @@ sudo apt install gcc gcc-x86-64-linux-gnu build-essential -y
 fi
 mkdir qemu-compiler-arm64 qemu-compiler-x64
 time bash -c "aarch64-linux-gnu-gcc -O3 -o qemu-compiler-arm64/qemu-compiler compile_qemu.c -static ;x86_64-linux-gnu-gcc -O3 -o qemu-compiler-x64/qemu-compiler compile_qemu.c -static"
-tar -cf qemu-compiler-arm64.tar qemu-compiler-arm64/*
-tar -cf qemu-compiler-x64.tar qemu-compiler-x64/*
-rm -rf qemu-compiler-*.tar.gz
-gzip qemu-compiler-arm64.tar
-gzip qemu-compiler-x64.tar
-rm -rf qemu-compiler-*.tar qemu-compiler-arm64 qemu-compiler-x64
+for i in arm64 x64;do
+cp LICENSE qemu-compiler-$i
+tar -cf qemu-compiler-$i.tar qemu-compiler-$i/*
+rm -rf qemu-compiler-$i.tar.gz
+gzip qemu-compiler-$i.tar
+rm -rf qemu-compiler-$i.tar qemu-compiler-$i
+done
 #cd qemu-compiler
 export COMMIT=$@
 if [[ $COMMIT != "" ]];then
