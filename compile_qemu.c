@@ -68,7 +68,7 @@ if(su==0)
     int file=access("qemu.tar.xz",F_OK);
     int file1=access("qemu",F_OK);
     //定义命令
-    char ver[50]="7.2.0-rc4"; //qemu版本号
+    char ver[50]="7.2.0"; //qemu版本号
 	char arr[100000]="/bin/bash -c 'cd qemu;./configure";
     char arr3[400]=" && make -j5 && make install && mkdir qemu-compiler && bash -c \"git clone https://gitee.com/xc1984759471/qemu-binary-demo.git\";cd qemu-binary-demo;rm -rf /usr/local/bin/uninstall_qemu;cat uninstall >> /usr/local/bin/uninstall_qemu ; chmod 777 /usr/local/bin/uninstall_qemu  ; cd ../..;rm -rf qemu'";
     char arr4[300]="wget --no-check-certificate -O qemu.tar.xz https://download.qemu.org/qemu-";
