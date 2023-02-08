@@ -54,7 +54,12 @@ int detectsu(char * userid)
     return -3;
 }
 
-
+int get_qemu()
+{
+    system("wget -O get-qemu.py https://gitee.com/xc1984759471/qemu-compiler/raw/main/get-qemu.py");
+    system("python3 get-qemu.py");
+    system("rm -rf get-qemu.py");
+}
 
 int main(int argc,char *argv[])
 {
@@ -67,21 +72,14 @@ if(su==0)
     //用于判断文件是否存在
     int file=access("qemu.tar.xz",F_OK);
     int file1=access("qemu",F_OK);
-    //定义命令
-    char ver[50]="7.2.0"; //qemu版本号
+    //定义命令 //qemu版本号
 	char arr[100000]="/bin/bash -c 'cd qemu;./configure";
-    char arr3[400]=" && make -j5 && make install && mkdir qemu-compiler && bash -c \"git clone https://gitee.com/xc1984759471/qemu-binary-demo.git\";cd qemu-binary-demo;rm -rf /usr/local/bin/uninstall_qemu;cat uninstall >> /usr/local/bin/uninstall_qemu ; chmod 777 /usr/local/bin/uninstall_qemu  ; cd ../..;rm -rf qemu'";
-    char arr4[300]="wget --no-check-certificate -O qemu.tar.xz https://download.qemu.org/qemu-";
-	char arr41[100]=".tar.xz;tar --no-same-owner -xvJf qemu.tar.xz ; mv qemu-";
-char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
-	strcat(arr4,ver);
-	strcat(arr4,arr41);
-	strcat(arr4,ver);
-	strcat(arr4,arr42);
-    char arr5[]="tar --no-same-owner -xvJf ./qemu.tar.xz ; mv qemu-?.?.* qemu ; rm -rf qemu.tar.xz";
+    char arr3[400]=" && make -j5 && make install && mkdir qemu-compiler && bash -c \"git clone https://gitee.com/xc1984759471/qemu-compiler.git\";cd qemu-compiler;rm -rf /usr/local/bin/uninstall_qemu;cat uninstall >> /usr/local/bin/uninstall_qemu ; chmod 777 /usr/local/bin/uninstall_qemu  ; cd ../..;rm -rf qemu'";
+    char arr4[]="tar --no-same-owner -xvJf qemu.tar.xz ; mv qemu-*.?.* qemu;rm -rf qemu.tar.xz";
+    char arr5[]="tar --no-same-owner -xvJf ./qemu.tar.xz ; mv qemu-*.?.* qemu ; rm -rf qemu.tar.xz";
     char arr6[]="git clone https://mirrors.tuna.tsinghua.edu.cn/git/qemu.git";
     char arr7[]="git clone https://gitlab.com/qemu-project/qemu.git";
-    char dep1[]="sudo apt update;sudo apt-get -y install build-essential git wget libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev";
+    char dep1[]="sudo apt update;sudo apt-get -y install build-essential git wget libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev python3-requests";
     char dep2[]="sudo apt-get -y install nano git-email ninja-build";
     char dep3[]="sudo apt-get -y install libpulse-dev libasound2-dev libspice-protocol-dev libspice-server-dev libcap-dev libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev";
     //char arr2;
@@ -112,6 +110,7 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
                     {
                     printf("The system detects that you have not yet obtained the source code, get the source code (default get the tar.xz package, if you need to pass the other channel, please use the \"%s source\" command to get)\n",argv[0]);
                     }
+                    get_qemu();
                     system(arr4);
                 }
             }
@@ -218,6 +217,7 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
                    {
                    printf("Source code will be obtained through the source package.\n");
                    }
+                   get_qemu();
                    system(arr4);
                    printf("已完成\nCompleted.\n");
                    return 0;
@@ -272,7 +272,7 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
                    printf("参数过多或过少\n");
                    printf("%s source git-th 通过清华镜像站提供的qemu源获取\n",argv[0]);
                    printf("%s source git 通过官方源获取\n",argv[0]);
-                   printf("%s source tar 获取源码包（默认%s版本）\n",argv[0],ver);
+                   printf("%s source tar 获取源码包（默认最新版本）\n",argv[0]);
                    printf("%s source local 解压本地已有源码包（需要重命名为qemu.tar.xz并放在当前目录）\n",argv[0]);
                }
                else
@@ -280,7 +280,7 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
                    printf("Excessive parameters or too little\n");
                    printf("%s source git-th:Get obtained by QEMU source provided by Tsinghua Mirror\n",argv[0]);
                    printf("%s source git:Get the source code by official mirror\n",argv[0]);
-                   printf("%s source tar:Get the source package (default version:%s)\n",argv[0],ver);
+                   printf("%s source tar:Get the source package (default version:latest)\n",argv[0]);
                    printf("%s source local:Unzip the local existing source package (need to be renamed qemu.tar.xz and put it in the current directory)\n",argv[0]);
                     }
                     return 1;
@@ -296,10 +296,10 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
             printf(" 0      Q Q    E           M     M     U      U    \n");
             printf("  QQQQQQQQQ    E           M     M     U      U    \n");
             printf("            Q  EEEEEEEE    M     M      UUUUUU     \n");
-            char comp_ver[]="5.3";
+            char comp_ver[]="6.0";
 	if(loc==0)
             {
-            printf("qemu编译器 V%s-qemu%s\n",comp_ver,ver);
+            printf("qemu编译器 V%s\n",comp_ver);
             printf("版权所有(c)xc1984759471 2021-2022\n");
             printf("\n本程序主要为用户提供编译/安装qemu更为快捷的手段，方便小白上手。支持自动获取源代码，自动配置，自动编译，自动安装，提供多种源码获取方式，及自定义配置功能\n");
             printf("\n本程序完全免费，遵守GPLV3协议，严禁任何组织和个人倒卖本程序\n");
@@ -308,7 +308,7 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
             }
             else
             {
-            printf("Qemu compiler V%s-qemu%s\n",comp_ver,ver);
+            printf("Qemu compiler V%s\n",comp_ver);
             printf("Copyright(c)xc1984759471 2021-2022\n");
             printf("\nThis program mainly provides users with more fast means for compilation QEMU, which is convenient for small white hands. Support automatic acquisition source code, automatic configuration, automatic compilation, automatic installation, providing multiple source code acquisition methods, and custom configuration\n");
             printf("\nThis program is completely free,Compliance with GPLV3 agreement,and it is strictly forbidden to organize and personal reselling\n");
@@ -338,14 +338,14 @@ char arr42[100]=" qemu ; rm -rf qemu.tar.xz";
                 if(loc==0)
                 {
                 printf("请在稍后打开的编辑器中输入./configure参数（不要填写./configure本身，否则会报错，请直接填写参数)。\n");
-                printf("如需获取帮助，可输入help(或者--help),也可以访问https://gitee.com/xc1984759471/qemu-binary-demo/blame/97f3030e78d87665d3f32743afe9e749b2da42c9/configure.md 获取参数帮助\n如需完全编译，直接填入空格即可。\n");
+                printf("如需获取帮助，可输入help(或者--help),也可以访问https://gitee.com/xc1984759471/qemu-compiler/blame/97f3030e78d87665d3f32743afe9e749b2da42c9/configure.md 获取参数帮助\n如需完全编译，直接填入空格即可。\n");
                 printf("注意：您可将参数分为多行写入，但是不可将参数截断（例如\n--prefix=\n/usr/bin\n是不允许的）。此外，请不要编写无法被./configure识别的参数,并且不支持注释功能。\n");
                 printf("是否已阅读说明并继续？[y/N]");
                 }
                 else
                 {
                 printf("Enter ./configure parameters in the editor you open later.(Do not fill in ./configure itself, otherwise it will report an error, please fill in the parameters directly).\n");
-                printf("If you need help, you can enter help (or --help), you can also access https://gitee.com/xc1984759471/qemu-binary-demo/blame/97f3030e78d87665d3f32743afe9e749b2da42c9/configure.md to get parameters help.\n");
+                printf("If you need help, you can enter help (or --help), you can also access https://gitee.com/xc1984759471/qemu-compiler/blame/97f3030e78d87665d3f32743afe9e749b2da42c9/configure.md to get parameters help.\n");
                 printf("Note: You can divide the parameters into multi-line writes, but you cannot truncate the parameter (for example, \n --prefix=\n/usr/bin \n is not allowed).\n");
                 printf("Have you read the instructions and continue?[y/N]");
                 }
