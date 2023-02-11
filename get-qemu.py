@@ -24,7 +24,7 @@ def find_and_download_newest_tar_xz():
     newest_url = None
 
     for line in content.split("\n"):
-        match = re.search("qemu-([\d\.]+\.[0-9]+\.[0-9]+).tar.xz", line)
+        match = re.search("qemu-([\d\.]+\.[\d\.]+\.[\d\.]+).tar.xz", line)
         if match:
             version = match.group(1)
             if newest_version is None or newest_version < version:
