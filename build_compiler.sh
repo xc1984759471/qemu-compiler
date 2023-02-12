@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 #rm -rf qemu-compiler/compile_qemu.c ; cp compile_qemu.c qemu-compiler
+cp -rf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 sudo apt update
 if [[ "$(arch)"="x86_64" ]];then
 sudo apt install gcc gcc-aarch64-linux-gnu build-essential -y
