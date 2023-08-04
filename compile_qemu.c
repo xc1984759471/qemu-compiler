@@ -54,7 +54,7 @@ int detectsu(char * userid)
     return -3;
 }
 
-int get_qemu(char arg[])
+int get_qemu(char arg[5])
 {
     system("wget -O get-qemu.py https://gitee.com/xc1984759471/qemu-compiler/raw/main/get-qemu.py");
     if(strcmp(arg,"rc")==0)
