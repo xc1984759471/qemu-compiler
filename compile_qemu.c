@@ -113,7 +113,7 @@ if(su==0)
                     {
                     printf("The system detects that you have not yet obtained the source code, get the source code (default get the tar.xz package, if you need to pass the other channel, please use the \"%s source\" command to get)\n",argv[0]);
                     }
-                    get_qemu(argv[3]);
+                    get_qemu(argv[2]);
                     system(arr4);
                 }
             }
@@ -175,7 +175,7 @@ if(su==0)
             }
             else
            {
-               if(argc==3)
+               if(argc>=3 && argc<=4)
                {
 		if(loc==0)
 		printf("正在安装基础依赖，请稍后\n");
