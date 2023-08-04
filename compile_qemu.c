@@ -220,8 +220,7 @@ if(su==0)
                    {
                    printf("Source code will be obtained through the source package.\n");
                    }
-		   char argv3[5]=argv[3];
-                   get_qemu(argv3);
+                   get_qemu(argv[3]);
                    system(arr4);
                    printf("已完成\nCompleted.\n");
                    return 0;
