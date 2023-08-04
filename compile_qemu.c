@@ -113,7 +113,7 @@ if(su==0)
                     {
                     printf("The system detects that you have not yet obtained the source code, get the source code (default get the tar.xz package, if you need to pass the other channel, please use the \"%s source\" command to get)\n",argv[0]);
                     }
-                    get_qemu();
+                    get_qemu(argv[3]);
                     system(arr4);
                 }
             }
