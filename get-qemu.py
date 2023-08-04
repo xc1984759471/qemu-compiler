@@ -1,3 +1,4 @@
+import argparse
 import requests
 import re
 import os
@@ -17,14 +18,22 @@ def download_file(url, filename):
             done = int(50 * dl / total_length)
             print("\r[%s%s] %d%%" % ('=' * done, ' ' * (50-done), 100 * dl / total_length), end="")
 
-def find_and_download_newest_tar_xz():
-    response = requests.get("https://download.qemu.org/")
+def find_and_download_newest_tar_xz(is_rc=False):
+    url = "https://download.qemu.org/"
+    if is_rc:
+        url += "?C=M;O=D"
+
+    response = requests.get(url)
     content = response.text
     newest_version = None
     newest_url = None
 
     for line in content.split("\n"):
-        match = re.search("qemu-([\d\.]+\.[\d\.]+\.[\d\.]+).tar.xz", line)
+        if is_rc:
+            match = re.search(r"qemu-([\d\.]+\.[\d\.]+\.[\d\.]+-rc[\d\.]+).tar.xz", line)
+        else:
+            match = re.search(r"qemu-([\d\.]+\.[\d\.]+\.[\d\.]+).tar.xz", line)
+
         if match:
             version = match.group(1)
             if newest_version is None or newest_version < version:
@@ -42,4 +51,8 @@ def find_and_download_newest_tar_xz():
         print("\nDownload failed:", e)
 
 if __name__ == "__main__":
-    find_and_download_newest_tar_xz()
+    parser = argparse.ArgumentParser(description="Download the newest QEMU tar.xz package.")
+    parser.add_argument("--rc", action="store_true", help="Include release candidate versions")
+    args = parser.parse_args()
+
+    find_and_download_newest_tar_xz(args.rc)

@@ -57,7 +57,10 @@ int detectsu(char * userid)
 int get_qemu()
 {
     system("wget -O get-qemu.py https://gitee.com/xc1984759471/qemu-compiler/raw/main/get-qemu.py");
-    system("python3 get-qemu.py");
+    if(argv[3]=="rc")
+    	system("python3 get-qemu.py --rc");
+    else
+	system("python3 get-qemu.py ");
     system("rm -rf get-qemu.py");
 }
 
@@ -272,7 +275,7 @@ if(su==0)
                    printf("参数过多或过少\n");
                    printf("%s source git-th 通过清华镜像站提供的qemu源获取\n",argv[0]);
                    printf("%s source git 通过官方源获取\n",argv[0]);
-                   printf("%s source tar 获取源码包（默认最新版本）\n",argv[0]);
+                   printf("%s source tar 获取源码包（默认最新稳定版本，在后面加rc即可获取测试版）\n",argv[0]);
                    printf("%s source local 解压本地已有源码包（需要重命名为qemu.tar.xz并放在当前目录）\n",argv[0]);
                }
                else
