@@ -54,10 +54,10 @@ int detectsu(char * userid)
     return -3;
 }
 
-int get_qemu()
+int get_qemu(char arg)
 {
     system("wget -O get-qemu.py https://gitee.com/xc1984759471/qemu-compiler/raw/main/get-qemu.py");
-    if(strcmp(argv[3],"rc")==0)
+    if(strcmp(arg,"rc")==0)
     	system("python3 get-qemu.py --rc");
     else
 	system("python3 get-qemu.py ");
@@ -89,7 +89,7 @@ if(su==0)
     if(argc>=2)
     {
         if(strcmp(argv[1],"auto")==0)//自动编译
-        {
+       {
 	    if(loc==0)
 		printf("正在安装基础依赖，请稍后\n");
 	    else
@@ -220,7 +220,8 @@ if(su==0)
                    {
                    printf("Source code will be obtained through the source package.\n");
                    }
-                   get_qemu();
+		   char argv3[5]=argv[3];
+                   get_qemu(argv3);
                    system(arr4);
                    printf("已完成\nCompleted.\n");
                    return 0;
