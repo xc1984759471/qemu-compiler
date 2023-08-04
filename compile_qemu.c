@@ -54,13 +54,17 @@ int detectsu(char * userid)
     return -3;
 }
 
-int get_qemu(char arg[5])
+void get_qemu(int arg)
 {
-    system("wget -O get-qemu.py https://gitee.com/xc1984759471/qemu-compiler/raw/main/get-qemu.py");
-    if(strcmp(arg,"rc")==0)
+    system("wget -O get-qemu.py https://raw.githubusercontent.com/xc1984759471/qemu-compiler/main/get-qemu.py");
+    if(arg==0)
+	{
     	system("python3 get-qemu.py --rc");
-    else
-	system("python3 get-qemu.py ");
+	}
+    else if(arg==1)
+	{
+	system("python3 get-qemu.py");
+	}
     system("rm -rf get-qemu.py");
 }
 
@@ -113,7 +117,11 @@ if(su==0)
                     {
                     printf("The system detects that you have not yet obtained the source code, get the source code (default get the tar.xz package, if you need to pass the other channel, please use the \"%s source\" command to get)\n",argv[0]);
                     }
-                    get_qemu(argv[2]);
+		    if(argc==3 && strcmp(argv[2],"rc")==0)
+                    get_qemu(0);
+		    else 
+		    get_qemu(1);
+
                     system(arr4);
                 }
             }
@@ -220,7 +228,12 @@ if(su==0)
                    {
                    printf("Source code will be obtained through the source package.\n");
                    }
-                   get_qemu(argv[3]);
+		   if(argc==4 && strcmp(argv[3],"rc")==0)
+                   get_qemu(0);
+			//printf("0,%d,%s",argc,argv[3]);
+		   else 
+		   get_qemu(1);
+			//printf("1,%d,%s",argc,argv[3]);
                    system(arr4);
                    printf("已完成\nCompleted.\n");
                    return 0;
