@@ -56,7 +56,7 @@ int detectsu(char * userid)
 
 void get_qemu(int arg)
 {
-    system("get -O get-qemu.py https://raw.yzuu.cf/xc1984759471/qemu-compiler/main/get-qemu.py || wget -O get-qemu.py https://raw.githubusercontent.com/xc1984759471/qemu-compiler/main/get-qemu.py");
+    system("wget -O get-qemu.py https://raw.yzuu.cf/xc1984759471/qemu-compiler/main/get-qemu.py || wget -O get-qemu.py https://raw.githubusercontent.com/xc1984759471/qemu-compiler/main/get-qemu.py");
     if(arg==0)
 	{
     	system("python3 get-qemu.py --rc");
@@ -81,7 +81,7 @@ if(su==0)
     int file1=access("qemu",F_OK);
     //定义命令 //qemu版本号
 	char arr[100000]="/bin/bash -c 'cd qemu;./configure";
-    char arr3[400]=" && make -j5 && make install && mkdir qemu-compiler && bash -c \"git clone https://gitee.com/xc1984759471/qemu-compiler.git\";cd qemu-compiler;rm -rf /usr/local/bin/uninstall_qemu;cat uninstall >> /usr/local/bin/uninstall_qemu ; chmod 777 /usr/local/bin/uninstall_qemu  ; cd ../..;rm -rf qemu'";
+    char arr3[400]=" && make -j$(nproc) && make install && mkdir qemu-compiler && bash -c \"git clone https://gitee.com/xc1984759471/qemu-compiler.git\";cd qemu-compiler;rm -rf /usr/local/bin/uninstall_qemu;cat uninstall >> /usr/local/bin/uninstall_qemu ; chmod 777 /usr/local/bin/uninstall_qemu  ; cd ../..;rm -rf qemu'";
     char arr4[]="tar --no-same-owner -xvJf qemu.tar.xz ; mv qemu-*.?.* qemu;rm -rf qemu.tar.xz";
     char arr5[]="tar --no-same-owner -xvJf ./qemu.tar.xz ; mv qemu-*.?.* qemu ; rm -rf qemu.tar.xz";
     char arr6[]="git clone https://mirrors.tuna.tsinghua.edu.cn/git/qemu.git";
@@ -382,7 +382,7 @@ if(su==0)
                 char arr21[2000];
                 //fgets(arr21,500,stdin);
 	            //arr21[strlen(arr21)-1]=0;
-                system("touch /tmp/custom_command.txt");
+                system("touch /tmp/custom_command.txt;echo \" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa \" >> /tmp/custom_command.txt");
                 system("editor /tmp/custom_command.txt");
                 system("sed -i ':a;N;s/\\n/ /g;ta' /tmp/custom_command.txt");
                 FILE *fp = NULL;
