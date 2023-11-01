@@ -132,13 +132,13 @@ if(su==0)
             if(loc==0)
             {
             printf("即将开始自动编译，将使用以下默认编译配置：\n");
-            printf("待编译的模拟模式：arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,ppc-softmmu,ppc64-softmmu,ppc-linux-user,ppc64-linux-user,mips64el-softmmu,mips64el-linux-user,x86_64-softmmu,x86_64-linux-user\n");
+            printf("待编译的模拟模式：arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,ppc-softmmu,ppc64-softmmu,ppc-linux-user,ppc64-linux-user,mips64el-softmmu,mips64el-linux-user,mips64el-softmmu,x86_64-softmmu,x86_64-linux-user\n");
             printf("其他功能：GTK+图形界面，spice图形界面，TPM模块支持等\n");
             }
             else
             {
             printf("It is about to start automatically compiling, you will use the following default compilation configuration:\n");
-            printf("Simulation mode to be compiled: ARM-SoftMMU, ARM-Linux-User, Aarch64-Softmmu, Aarch64-Linux-User, I386-SoftMMU, I386-Linux-User, PPC-SoftMMU, PPC64-Softmu, PPC-Linux-User, PPC64-Linux-User, MIPS64EL-SoftMMU, MIPS64EL-Linux-User, X86_64-SoftMMU, X86_64-Linux-User\n");
+            printf("Simulation mode to be compiled: ARM-SoftMMU, ARM-Linux-User, Aarch64-Softmmu, Aarch64-Linux-User, I386-SoftMMU, I386-Linux-User, PPC-SoftMMU, PPC64-Softmu, PPC-Linux-User, PPC64-Linux-User, MIPS64EL-SoftMMU, X86_64-SoftMMU, X86_64-Linux-User\n");
             printf("Other features: GTK + graphical interface, SPICE graphical interface, TPM module support, etc.\n");
             }
             for(i=3;i>=1;i--)//倒计时
@@ -153,7 +153,7 @@ if(su==0)
                 }
                 usleep(1000000);
             }
-            char arr2[400]=" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa ";
+            char arr2[400]=" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,mips64el-softmmu,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa ";
             strcat(arr,arr2);
             strcat(arr,arr3);
             system(arr);//执行编译命令
@@ -382,7 +382,7 @@ if(su==0)
                 char arr21[2000];
                 //fgets(arr21,500,stdin);
 	            //arr21[strlen(arr21)-1]=0;
-                system("touch /tmp/custom_command.txt;echo \" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa \" >> /tmp/custom_command.txt");
+                system("touch /tmp/custom_command.txt;echo \" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,mips64el-softmmu,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa \" >> /tmp/custom_command.txt");
                 system("editor /tmp/custom_command.txt");
                 system("sed -i ':a;N;s/\\n/ /g;ta' /tmp/custom_command.txt");
                 FILE *fp = NULL;
