@@ -153,7 +153,7 @@ if(su==0)
                 }
                 usleep(1000000);
             }
-            char arr2[400]=" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,mips64el-softmmu,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa ";
+            char arr2[400]=" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,mips64el-softmmu,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa --enable-slirp ";
             strcat(arr,arr2);
             strcat(arr,arr3);
             system(arr);//执行编译命令
@@ -382,7 +382,7 @@ if(su==0)
                 char arr21[2000];
                 //fgets(arr21,500,stdin);
 	            //arr21[strlen(arr21)-1]=0;
-                system("touch /tmp/custom_command.txt;echo \" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,mips64el-softmmu,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa \" >> /tmp/custom_command.txt");
+                system("touch /tmp/custom_command.txt;echo \" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,mips64el-softmmu,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa --enable-slirp \" >> /tmp/custom_command.txt");
                 system("editor /tmp/custom_command.txt");
                 system("sed -i ':a;N;s/\\n/ /g;ta' /tmp/custom_command.txt");
                 FILE *fp = NULL;
