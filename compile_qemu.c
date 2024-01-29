@@ -296,7 +296,7 @@ if(su==0)
                    printf("Excessive parameters or too little\n");
                    printf("%s source git-th:Get obtained by QEMU source provided by Tsinghua Mirror\n",argv[0]);
                    printf("%s source git:Get the source code by official mirror\n",argv[0]);
-                   printf("%s source tar:Get the source package (default version:latest)\n",argv[0]);
+                   printf("%s source tar:Get the source package (default version:latest,use \"%s source tar rc\" to get rc version)\n",argv[0],argv[0]);
                    printf("%s source local:Unzip the local existing source package (need to be renamed qemu.tar.xz and put it in the current directory)\n",argv[0]);
                     }
                     return 1;
