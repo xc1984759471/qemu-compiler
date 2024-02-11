@@ -56,7 +56,7 @@ int detectsu(char * userid)
 
 void get_qemu(int arg)
 {
-    system("wget -O get-qemu.py https://raw.yzuu.cf/xc1984759471/qemu-compiler/main/get-qemu.py || wget -O get-qemu.py https://raw.githubusercontent.com/xc1984759471/qemu-compiler/main/get-qemu.py");
+    system("wget -O get-qemu.py https://mirror.ghproxy.com/https://raw.githubusercontent.com/xc1984759471/qemu-compiler/main/get-qemu.py || wget -O get-qemu.py https://raw.githubusercontent.com/xc1984759471/qemu-compiler/main/get-qemu.py");
     if(arg==0)
 	{
     	system("python3 get-qemu.py --rc");
