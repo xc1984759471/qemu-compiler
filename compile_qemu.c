@@ -173,11 +173,11 @@ if(su==0)
             {
                 if(loc==0)
                 {
-                printf("已经获取完源码，退出\n如需再次获取，请手动删除qemu目录\n");
+                printf("已经获取完源码，退出\n如需再次获取，请通过\"rm -rfv qemu qemu.tar.xz qemu-*.*.*.tar.xz\"命令手动删除qemu目录\n");
                 }
                 else
                 {
-                printf("Already got the source code, exit\nIf you need to get again, please delete the QEMU directory manually\n");
+                printf("Already got the source code, exit\nIf you need to get again, please delete the QEMU directory by \"rm -rfv qemu qemu.tar.xz qemu-*.*.*.tar.xz\"\n");
                 }
                 return 0;
             }
