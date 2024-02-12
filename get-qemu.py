@@ -13,7 +13,7 @@ def download_file(url, filename):
 
     with open(filename, "wb") as f:
         dl = 0
-        for data in response.iter_content(chunk_size=1048576):
+        for data in response.iter_content(chunk_size=256):
             dl += len(data)
             f.write(data)
             done = int(50 * dl / total_length)
