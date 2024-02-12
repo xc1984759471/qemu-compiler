@@ -81,7 +81,7 @@ if(su==0)
     int file1=access("qemu",F_OK);
     //定义命令 //qemu版本号
 	char arr[100000]="/bin/bash -c 'cd qemu;./configure";
-    char arr3[400]=" && make -j$(nproc) && make install && mkdir qemu-compiler && bash -c \"git clone https://gitee.com/xc1984759471/qemu-compiler.git\";cd qemu-compiler;rm -rf /usr/local/bin/uninstall_qemu;cat uninstall >> /usr/local/bin/uninstall_qemu ; chmod 777 /usr/local/bin/uninstall_qemu  ; cd ../..;rm -rf qemu'";
+    char arr3[400]=" && make -j$(nproc) && make install && mkdir qemu-compiler && bash -c \"git clone https://gitee.com/xc1984759471/qemu-compiler.git\";cd qemu-compiler;rm -rf /usr/local/bin/uninstall_qemu;cat uninstall >> /usr/local/bin/uninstall_qemu ; chmod 777 /usr/local/bin/uninstall_qemu  ; cd ../..;rm -rfv qemu'";
     char arr4[]="tar --no-same-owner -xvJf qemu.tar.xz ; mv qemu-*.?.* qemu;rm -rf qemu.tar.xz";
     char arr5[]="tar --no-same-owner -xvJf ./qemu.tar.xz ; mv qemu-*.?.* qemu ; rm -rf qemu.tar.xz";
     char arr6[]="git clone https://mirrors.tuna.tsinghua.edu.cn/git/qemu.git";
