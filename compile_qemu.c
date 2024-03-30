@@ -88,7 +88,7 @@ if(su==0)
     char arr7[]="git clone https://gitlab.com/qemu-project/qemu.git";
     char dep1[]="sudo apt update;sudo apt-get -y install build-essential git wget libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev python3-requests";
     char dep2[]="sudo apt-get -y install nano git-email ninja-build";
-    char dep3[]="sudo apt-get -y install libpulse-dev libasound2-dev libspice-protocol-dev libspice-server-dev libcap-dev libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev";
+    char dep3[]="sudo apt-get -y install libpulse-dev libasound2-dev libspice-protocol-dev libspice-server-dev libcap-dev libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev python3-venv";
     //char arr2;
     if(argc>=2)
     {
