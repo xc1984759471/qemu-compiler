@@ -312,11 +312,11 @@ if(su==0)
             printf(" 0      Q Q    E           M     M     U      U    \n");
             printf("  QQQQQQQQQ    E           M     M     U      U    \n");
             printf("            Q  EEEEEEEE    M     M      UUUUUU     \n");
-            char comp_ver[]="6.1";
+            char comp_ver[]="6.2";
 	if(loc==0)
             {
             printf("qemu编译器 V%s\n",comp_ver);
-            printf("版权所有(c)xc1984759471 2021-2023\n");
+            printf("版权所有(c)xc1984759471 2021-2024\n");
             printf("\n本程序主要为用户提供编译/安装qemu更为快捷的手段，方便小白上手。支持自动获取源代码，自动配置，自动编译，自动安装，提供多种源码获取方式，及自定义配置功能\n");
             printf("\n本程序完全免费，遵守GPLV3协议，严禁任何组织和个人倒卖本程序\n");
             printf("反馈建议与bug请前往本仓库地址https://github.com/xc1984759471/qemu-compiler\n");
@@ -325,7 +325,7 @@ if(su==0)
             else
             {
             printf("Qemu compiler V%s\n",comp_ver);
-            printf("Copyright(c)xc1984759471 2021-2023\n");
+            printf("Copyright(c)xc1984759471 2021-2024\n");
             printf("\nThis program mainly provides users with more fast means for compilation QEMU, which is convenient for small white hands. Support automatic acquisition source code, automatic configuration, automatic compilation, automatic installation, providing multiple source code acquisition methods, and custom configuration\n");
             printf("\nThis program is completely free,Compliance with GPLV3 agreement,and it is strictly forbidden to organize and personal reselling\n");
             printf("Feedback Suggestions and Bug Please go to this GIT repository:https://github.com/xc1984759471/qemu-compiler\n");
