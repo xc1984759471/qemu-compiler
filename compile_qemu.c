@@ -88,7 +88,7 @@ if(su==0)
     char arr7[]="git clone https://gitlab.com/qemu-project/qemu.git";
     char dep1[]="sudo apt update;sudo apt-get -y install build-essential git wget libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev python3-requests";
     char dep2[]="sudo apt-get -y install nano git-email ninja-build";
-    char dep3[]="sudo apt-get -y install libpulse-dev libasound2-dev libspice-protocol-dev libspice-server-dev libcap-dev libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev python3-venv";
+    char dep3[]="sudo apt-get -y install libpulse-dev libasound2-dev libspice-protocol-dev libspice-server-dev libcap-dev libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev python3-venv libopengl-dev";
     //char arr2;
     if(argc>=2)
     {
@@ -153,7 +153,7 @@ if(su==0)
                 }
                 usleep(1000000);
             }
-            char arr2[400]=" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,mips64el-softmmu,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa --enable-slirp ";
+            char arr2[400]=" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,mips64el-softmmu,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa --enable-slirp --enable-opengl ";
             strcat(arr,arr2);
             strcat(arr,arr3);
             system(arr);//执行编译命令
@@ -382,7 +382,7 @@ if(su==0)
                 char arr21[2000];
                 //fgets(arr21,500,stdin);
 	            //arr21[strlen(arr21)-1]=0;
-                system("touch /tmp/custom_command.txt;echo \" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,mips64el-softmmu,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa --enable-slirp \" >> /tmp/custom_command.txt");
+                system("touch /tmp/custom_command.txt;echo \" --enable-gtk --enable-tpm --prefix=/usr/local --enable-spice --target-list=arm-softmmu,arm-linux-user,aarch64-softmmu,aarch64-linux-user,i386-softmmu,i386-linux-user,loongarch64-softmmu,loongarch64-linux-user,mips64el-softmmu,x86_64-softmmu,x86_64-linux-user --audio-drv-list=alsa,pa --enable-slirp --enable-opengl \" >> /tmp/custom_command.txt");
                 system("editor /tmp/custom_command.txt");
                 system("sed -i ':a;N;s/\\n/ /g;ta' /tmp/custom_command.txt");
                 FILE *fp = NULL;
