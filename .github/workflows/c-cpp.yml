@@ -21,13 +21,13 @@ jobs:
       run: ./build_compiler.sh
 
     - name: Upload arm64
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
           name: qemu-compiler-arm64
           path: ./qemu-compiler-arm64.tar.gz
      
     - name: Upload x64
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
           name: qemu-compiler-x64
           path: ./qemu-compiler-x64.tar.gz
